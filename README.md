@@ -1,4 +1,5 @@
 # SymVar-CoT-model
+
 **UNIQUE SAMPLES:**
 <img width="989" height="315" alt="Screenshot 2025-10-02 215915" src="https://github.com/user-attachments/assets/3ec71d3c-fd49-4fba-87d1-c3d71f601210" />
 
@@ -76,5 +77,34 @@ Abstracted Steps:
   - NUM
 ```
 
+
+# Accessing the Fine-Tuned Model:
+
+```bash
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="ft:gpt-4o-mini-2024-07-18:personal::CJzhVsz3",
+    messages=[{"role": "user", "content": "If all exoplanets in a system orbit their star elliptically, some have atmospheres with hydrogen, and no hydrogen-rich planet is closer than 0.5 AU, can a planet at 0.3 AU have hydrogen?"}]
+)
+
+print(response.choices[0].message.content)
+```
+
+
+```bash
+Based on the premises given, we can analyze the conditions for a planet to have hydrogen in its atmosphere.
+
+1. **Exoplanet(x) → OrbitsElliptically(x) → HasAtmosphereWithHydrogen(x) → α**: If a planet is an exoplanet and orbits elliptically, and if it has hydrogen-rich atmosphere, then it satisfies α.
+
+2. **CloserThan( x, 0.5) → HasAtmosphereWithHydrogen(x)**: If a planet is closer than 0.5 AU to its star, then: it does not have a hydrogen-rich atmosphere.
+
+From the second premise, we conclude that no hydrogen-rich planet can be closer than 0.5 AU to its star. Therefore, if a planet is at 0.3 AU, it cannot have a hydrogen-rich atmosphere.
+
+Answer: No
+
+```
 
 
