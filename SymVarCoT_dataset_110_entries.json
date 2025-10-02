@@ -1,0 +1,3065 @@
+[
+  {
+    "id": "001",
+    "query": "If a person has 3 items and buys 2 more, how many items does he have?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalItems(Person, ?x)",
+      "facts": [
+        "Has(Person, 3)",
+        "Buys(Person, 2)"
+      ],
+      "rules": [
+        "\u2200a \u2200b \u2200p: Has(a, b) \u2227 Buys(a, p) \u2192 TotalItems(a, b + p)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalItems rule",
+          "inferred": "TotalItems(Person, 3+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalItems(Person, 5)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalItems(Person, 3+2) \u2192 TotalItems(Person, 5)"
+    },
+    "answer": "5"
+  },
+  {
+    "id": "002",
+    "query": "If a person has 7 items and buys 5 more, how many items does he have?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalItems(Person, ?x)",
+      "facts": [
+        "Has(Person, 7)",
+        "Buys(Person, 5)"
+      ],
+      "rules": [
+        "\u2200a \u2200b \u2200p: Has(a, b) \u2227 Buys(a, p) \u2192 TotalItems(a, b + p)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalItems rule",
+          "inferred": "TotalItems(Person, 7+5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalItems(Person, 12)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalItems(Person, 7+5) \u2192 TotalItems(Person, 12)"
+    },
+    "answer": "12"
+  },
+  {
+    "id": "003",
+    "query": "If a person has 10 items and buys 15 more, how many items does he have?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalItems(Person, ?x)",
+      "facts": [
+        "Has(Person, 10)",
+        "Buys(Person, 15)"
+      ],
+      "rules": [
+        "\u2200a \u2200b \u2200p: Has(a, b) \u2227 Buys(a, p) \u2192 TotalItems(a, b + p)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalItems rule",
+          "inferred": "TotalItems(Person, 10+15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalItems(Person, 25)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalItems(Person, 10+15) \u2192 TotalItems(Person, 25)"
+    },
+    "answer": "25"
+  },
+  {
+    "id": "004",
+    "query": "If a person has 12 items and buys 8 more, how many items does he have?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalItems(Person, ?x)",
+      "facts": [
+        "Has(Person, 12)",
+        "Buys(Person, 8)"
+      ],
+      "rules": [
+        "\u2200a \u2200b \u2200p: Has(a, b) \u2227 Buys(a, p) \u2192 TotalItems(a, b + p)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalItems rule",
+          "inferred": "TotalItems(Person, 12+8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalItems(Person, 20)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalItems(Person, 12+8) \u2192 TotalItems(Person, 20)"
+    },
+    "answer": "20"
+  },
+  {
+    "id": "005",
+    "query": "If a person has 9 items and buys 6 more, how many items does he have?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalItems(Person, ?x)",
+      "facts": [
+        "Has(Person, 9)",
+        "Buys(Person, 6)"
+      ],
+      "rules": [
+        "\u2200a \u2200b \u2200p: Has(a, b) \u2227 Buys(a, p) \u2192 TotalItems(a, b + p)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalItems rule",
+          "inferred": "TotalItems(Person, 9+6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalItems(Person, 15)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalItems(Person, 9+6) \u2192 TotalItems(Person, 15)"
+    },
+    "answer": "15"
+  },
+  {
+    "id": "006",
+    "query": "All cats are mammals. Felix is a cat. Is Felix a mammal?",
+    "symbolic_annotation": {
+      "goal_atom": "Mammal(Felix)",
+      "facts": [
+        "Cat(Felix)"
+      ],
+      "rules": [
+        "\u2200x: Cat(x) \u2192 Mammal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Cat(x) \u2192 Mammal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Mammal(Felix)"
+        }
+      ],
+      "compressed_symbolic_cot": " Cat(x) \u2192 Mammal(x) \u2192 Mammal(Felix)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "007",
+    "query": "All humans are mortal. Socrates is human. Is Socrates mortal?",
+    "symbolic_annotation": {
+      "goal_atom": "Mortal(Socrates)",
+      "facts": [
+        "Human(Socrates)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 Mortal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 Mortal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Mortal(Socrates)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 Mortal(x) \u2192 Mortal(Socrates)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "008",
+    "query": "All squares are rectangles. All rectangles have four sides. Does a square have four sides?",
+    "symbolic_annotation": {
+      "goal_atom": "HasFourSides(Square)",
+      "facts": [
+        "Square(Square)"
+      ],
+      "rules": [
+        "\u2200x: Square(x) \u2192 Rectangle(x)",
+        "\u2200x: Rectangle(x) \u2192 HasFourSides(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Square(x) \u2192 Rectangle(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Rectangle(x) \u2192 HasFourSides(x)"
+        },
+        {
+          "step": 3,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "HasFourSides(Square)"
+        }
+      ],
+      "compressed_symbolic_cot": " Square(x) \u2192 Rectangle(x) \u2192  Rectangle(x) \u2192 HasFourSides(x) \u2192 HasFourSides(Square)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "009",
+    "query": "If Peter is taller than John, and John is taller than Sam, who is the tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Peter, John)",
+        "Taller(John, Sam)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x, y) \u2227 Taller(y, z) \u2192 Taller(x, z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x, y) \u2227 Taller(y, z) \u2192 Taller(x, z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x, y) \u2227 Taller(y, z) \u2192 Taller(x, z) \u2192 Tallest(?x)"
+    },
+    "answer": "Peter"
+  },
+  {
+    "id": "010",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "011",
+    "query": "A train travels 60 km in 1.5 hours. What is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(Train, ?s)",
+      "facts": [
+        "Distance(Train, 60)",
+        "Time(Train, 1.5)"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+        }
+      ],
+      "compressed_symbolic_cot": " Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+    },
+    "answer": "40 km/h"
+  },
+  {
+    "id": "012",
+    "query": "If a car travels 120 km in 2 hours, how far will it travel in 5 hours at the same speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Distance(Car, ?d)",
+      "facts": [
+        "Distance(Car,120)",
+        "Time(Car,2)"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)",
+        "\u2200s \u2200t \u2200x: Speed(x,s) \u2227 Time(x,t) \u2192 Distance(x,s*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200s \u2200t \u2200x: Speed(x,s) \u2227 Time(x,t) \u2192 Distance(x,s*t)"
+        }
+      ],
+      "compressed_symbolic_cot": " Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t) \u2192  Speed(x,s) \u2227 Time(x,t) \u2192 Distance(x,s*t)"
+    },
+    "answer": "300 km"
+  },
+  {
+    "id": "013",
+    "query": "If a bag has 5 red balls and 3 blue balls, what fraction of balls are red?",
+    "symbolic_annotation": {
+      "goal_atom": "FractionRed(?f)",
+      "facts": [
+        "RedBalls(Bag,5)",
+        "BlueBalls(Bag,3)"
+      ],
+      "rules": [
+        "\u2200r \u2200b \u2200x: RedBalls(x,r) \u2227 BlueBalls(x,b) \u2192 FractionRed(x,r/(r+b))"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200r \u2200b \u2200x: RedBalls(x,r) \u2227 BlueBalls(x,b) \u2192 FractionRed(x,r/(r+b))"
+        }
+      ],
+      "compressed_symbolic_cot": " RedBalls(x,r) \u2227 BlueBalls(x,b) \u2192 FractionRed(x,r/(r+b))"
+    },
+    "answer": "5/8"
+  },
+  {
+    "id": "014",
+    "query": "If a rectangle has length 10 and width 5, what is its area?",
+    "symbolic_annotation": {
+      "goal_atom": "Area(Rectangle, ?a)",
+      "facts": [
+        "Length(Rectangle,10)",
+        "Width(Rectangle,5)"
+      ],
+      "rules": [
+        "\u2200l \u2200w \u2200r: Length(r,l) \u2227 Width(r,w) \u2192 Area(r,l*w)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200l \u2200w \u2200r: Length(r,l) \u2227 Width(r,w) \u2192 Area(r,l*w)"
+        }
+      ],
+      "compressed_symbolic_cot": " Length(r,l) \u2227 Width(r,w) \u2192 Area(r,l*w)"
+    },
+    "answer": "50"
+  },
+  {
+    "id": "015",
+    "query": "If the temperature drops 5\u00b0C every hour, how much will it drop in 3 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(5)",
+        "Time(3)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+        }
+      ],
+      "compressed_symbolic_cot": " DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+    },
+    "answer": "15\u00b0C"
+  },
+  {
+    "id": "016",
+    "query": "If object A moves 170 meters in 17 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 170)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 170/17)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 170/17) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "017",
+    "query": "If object A moves 180 meters in 18 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 180)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 180/18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 180/18) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "018",
+    "query": "If object A moves 190 meters in 19 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 190)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 190/19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 190/19) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "019",
+    "query": "If object A moves 200 meters in 20 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 200)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 200/20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 200/20) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "020",
+    "query": "If object A moves 10 meters in 1 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 10)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 10/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 10/1) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "021",
+    "query": "If object A moves 20 meters in 2 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 20)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 20/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 20/2) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "022",
+    "query": "If object A moves 30 meters in 3 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 30)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 30/3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 30/3) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "023",
+    "query": "If object A moves 40 meters in 4 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 40)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 40/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 40/4) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "024",
+    "query": "If object A moves 50 meters in 5 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 50)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 50/5) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "025",
+    "query": "If object A moves 60 meters in 6 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 60)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 60/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 60/6) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "026",
+    "query": "If object A moves 70 meters in 7 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 70)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 70/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 70/7) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "027",
+    "query": "If object A moves 80 meters in 8 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 80)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 80/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 80/8) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "028",
+    "query": "If object A moves 90 meters in 9 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 90)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 90/9)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 90/9) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "029",
+    "query": "If object A moves 100 meters in 10 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 100)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 100/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 100/10) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "030",
+    "query": "If object A moves 110 meters in 11 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 110)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 110/11)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 110/11) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "031",
+    "query": "If object A moves 120 meters in 12 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 120)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 120/12)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 120/12) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "032",
+    "query": "If object A moves 130 meters in 13 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 130)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 130/13)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 130/13) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "033",
+    "query": "If object A moves 140 meters in 14 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 140)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 140/14)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 140/14) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "034",
+    "query": "If object A moves 150 meters in 15 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 150)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 150/15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 150/15) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "035",
+    "query": "If object A moves 160 meters in 16 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 160)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 160/16)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 160/16) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "036",
+    "query": "If object A moves 170 meters in 17 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 170)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 170/17)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 170/17) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "037",
+    "query": "If object A moves 180 meters in 18 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 180)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 180/18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 180/18) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "038",
+    "query": "If object A moves 190 meters in 19 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 190)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 190/19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 190/19) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "039",
+    "query": "If object A moves 200 meters in 20 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 200)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 200/20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 200/20) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "040",
+    "query": "If object A moves 10 meters in 1 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 10)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 10/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 10/1) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "041",
+    "query": "If object A moves 20 meters in 2 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 20)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 20/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 20/2) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "042",
+    "query": "If object A moves 30 meters in 3 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 30)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 30/3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 30/3) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "043",
+    "query": "If object A moves 40 meters in 4 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 40)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 40/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 40/4) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "044",
+    "query": "If object A moves 50 meters in 5 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 50)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 50/5) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "045",
+    "query": "If object A moves 60 meters in 6 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 60)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 60/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 60/6) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "046",
+    "query": "If object A moves 70 meters in 7 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 70)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 70/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 70/7) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "047",
+    "query": "If object A moves 80 meters in 8 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 80)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 80/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 80/8) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "048",
+    "query": "If object A moves 90 meters in 9 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 90)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 90/9)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 90/9) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "049",
+    "query": "If object A moves 100 meters in 10 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 100)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 100/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 100/10) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "050",
+    "query": "If object A moves 110 meters in 11 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 110)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 110/11)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 110/11) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "051",
+    "query": "If object A moves 120 meters in 12 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 120)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 120/12)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 120/12) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "052",
+    "query": "If object A moves 130 meters in 13 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 130)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 130/13)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 130/13) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "053",
+    "query": "If object A moves 140 meters in 14 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 140)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 140/14)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 140/14) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "054",
+    "query": "If object A moves 150 meters in 15 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 150)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 150/15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 150/15) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "055",
+    "query": "If object A moves 160 meters in 16 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 160)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 160/16)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 160/16) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "056",
+    "query": "If object A moves 170 meters in 17 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 170)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 170/17)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 170/17) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "057",
+    "query": "If object A moves 180 meters in 18 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 180)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 180/18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 180/18) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "058",
+    "query": "If object A moves 190 meters in 19 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 190)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 190/19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 190/19) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "059",
+    "query": "If object A moves 200 meters in 20 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 200)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 200/20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 200/20) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "060",
+    "query": "If object A moves 10 meters in 1 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 10)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 10/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 10/1) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "061",
+    "query": "If object A moves 20 meters in 2 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 20)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 20/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 20/2) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "062",
+    "query": "If object A moves 30 meters in 3 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 30)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 30/3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 30/3) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "063",
+    "query": "If object A moves 40 meters in 4 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 40)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 40/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 40/4) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "064",
+    "query": "If object A moves 50 meters in 5 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 50)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 50/5) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "065",
+    "query": "If object A moves 60 meters in 6 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 60)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 60/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 60/6) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "066",
+    "query": "If object A moves 70 meters in 7 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 70)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 70/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 70/7) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "067",
+    "query": "If object A moves 80 meters in 8 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 80)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 80/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 80/8) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "068",
+    "query": "If object A moves 90 meters in 9 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 90)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 90/9)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 90/9) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "069",
+    "query": "If object A moves 100 meters in 10 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 100)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 100/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 100/10) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "070",
+    "query": "If object A moves 110 meters in 11 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 110)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 110/11)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 110/11) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "071",
+    "query": "If object A moves 120 meters in 12 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 120)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 120/12)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 120/12) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "072",
+    "query": "If object A moves 130 meters in 13 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 130)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 130/13)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 130/13) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "073",
+    "query": "If object A moves 140 meters in 14 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 140)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 140/14)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 140/14) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "074",
+    "query": "If object A moves 150 meters in 15 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 150)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 150/15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 150/15) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "075",
+    "query": "If object A moves 160 meters in 16 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 160)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 160/16)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 160/16) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "076",
+    "query": "If object A moves 170 meters in 17 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 170)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 170/17)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 170/17) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "077",
+    "query": "If object A moves 180 meters in 18 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 180)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 180/18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 180/18) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "078",
+    "query": "If object A moves 190 meters in 19 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 190)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 190/19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 190/19) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "079",
+    "query": "If object A moves 200 meters in 20 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 200)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 200/20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 200/20) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "080",
+    "query": "If object A moves 10 meters in 1 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 10)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 10/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 10/1) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "081",
+    "query": "If object A moves 20 meters in 2 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 20)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 20/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 20/2) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "082",
+    "query": "If object A moves 30 meters in 3 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 30)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 30/3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 30/3) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "083",
+    "query": "If object A moves 40 meters in 4 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 40)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 40/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 40/4) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "084",
+    "query": "If object A moves 50 meters in 5 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 50)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 50/5) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "085",
+    "query": "If object A moves 60 meters in 6 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 60)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 60/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 60/6) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "086",
+    "query": "If object A moves 70 meters in 7 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 70)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 70/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 70/7) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "087",
+    "query": "If object A moves 80 meters in 8 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 80)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 80/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 80/8) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "088",
+    "query": "If object A moves 90 meters in 9 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 90)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 90/9)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 90/9) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "089",
+    "query": "If object A moves 100 meters in 10 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 100)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 100/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 100/10) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "090",
+    "query": "If object A moves 110 meters in 11 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 110)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 110/11)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 110/11) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "091",
+    "query": "If object A moves 120 meters in 12 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 120)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 120/12)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 120/12) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "092",
+    "query": "If object A moves 130 meters in 13 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 130)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 130/13)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 130/13) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "093",
+    "query": "If object A moves 140 meters in 14 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 140)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 140/14)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 140/14) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "094",
+    "query": "If object A moves 150 meters in 15 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 150)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 150/15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 150/15) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "095",
+    "query": "If object A moves 160 meters in 16 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 160)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 160/16)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 160/16) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "096",
+    "query": "If object A moves 170 meters in 17 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 170)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 170/17)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 170/17) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "097",
+    "query": "If object A moves 180 meters in 18 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 180)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 180/18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 180/18) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "098",
+    "query": "If object A moves 190 meters in 19 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 190)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 190/19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 190/19) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "099",
+    "query": "If object A moves 200 meters in 20 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 200)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 200/20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 200/20) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "100",
+    "query": "If object A moves 10 meters in 1 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 10)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 10/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 10/1) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "101",
+    "query": "If object A moves 20 meters in 2 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 20)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 20/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 20/2) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "102",
+    "query": "If object A moves 30 meters in 3 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 30)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 30/3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 30/3) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "103",
+    "query": "If object A moves 40 meters in 4 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 40)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 40/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 40/4) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "104",
+    "query": "If object A moves 50 meters in 5 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 50)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 50/5) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "105",
+    "query": "If object A moves 60 meters in 6 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 60)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 60/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 60/6) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "106",
+    "query": "If object A moves 70 meters in 7 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 70)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 70/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 70/7) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "107",
+    "query": "If object A moves 80 meters in 8 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 80)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 80/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 80/8) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "108",
+    "query": "If object A moves 90 meters in 9 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 90)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 90/9)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 90/9) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "109",
+    "query": "If object A moves 100 meters in 10 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 100)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 100/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 100/10) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "110",
+    "query": "If object A moves 110 meters in 11 seconds, what is its speed?",
+    "symbolic_annotation": {
+      "goal_atom": "Speed(ObjectA, ?s)",
+      "facts": [
+        "Distance(ObjectA, 110)",
+        "Time(ObjectA, {n})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200x: Distance(x,d) \u2227 Time(x,t) \u2192 Speed(x,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Speed formula",
+          "inferred": "Speed(ObjectA, 110/11)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Speed(ObjectA, 10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Speed(ObjectA, 110/11) \u2192 Speed(ObjectA, 10)"
+    },
+    "answer": "10 m/s"
+  }
+]

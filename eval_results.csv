@@ -1,0 +1,68 @@
+id,query,gold,pred,correct,compressed_symbolic_cot,full_output
+040,An object moves 440 meters in 10 seconds. What is its velocity?,44 m/s,44 m/s,True,"Velocity(Object,440/10) → Velocity(Object,44)","Velocity(Object,440/10) → Velocity(Object,44)
+
+Answer: 44 m/s"
+097,The temperature drops 6°C every hour. How much will it drop in 3 hours?,18°C,18°C,True,DropPerHour(6) ∧ Time(3) → TemperatureDrop(6*3) → 18,"DropPerHour(6) ∧ Time(3) → TemperatureDrop(6*3) → 18
+
+Answer: 18°C"
+086,An object moves 88 meters in 2 seconds. What is its velocity?,44 m/s,44 m/s,True,"Velocity(Object,88/2) → Velocity(Object,44)","Velocity(Object,88/2) → Velocity(Object,44)
+
+Answer: 44 m/s"
+063,A student has 11 pencils and buys 19 more. How many pencils does he have in total?,30,30,True,"TotalPencils(Student,11+19) → TotalPencils(Student,30)","TotalPencils(Student,11+19) → TotalPencils(Student,30)
+
+Answer: 30"
+058,An object moves 96 meters in 2 seconds. What is its velocity?,48 m/s,48 m/s,True,"Velocity(Object,96/2) → Velocity(Object,48)","Velocity(Object,96/2) → Velocity(Object,48)
+
+Answer: 48 m/s"
+056,A student has 3 pencils and buys 15 more. How many pencils does he have in total?,18,18,True,"TotalPencils(Student,3+15) → TotalPencils(Student,18)","TotalPencils(Student,3+15) → TotalPencils(Student,18)
+
+Answer: 18"
+024,"If object A moves 50 meters in 5 seconds, what is its speed?",10 m/s,10 m/s,True,"Speed(ObjectA, 50/5) → Speed(ObjectA, 10)","Speed(ObjectA, 50/5) → Speed(ObjectA, 10)
+
+Answer: 10 m/s"
+061,An object moves 28 meters in 2 seconds. What is its velocity?,14 m/s,14 m/s,True,"Velocity(Object,28/2) → Velocity(Object,14)","Velocity(Object,28/2) → Velocity(Object,14)
+
+Answer: 14 m/s"
+012,The temperature drops 5°C every hour. How much will it drop in 2 hours?,10°C,10°C,True,DropPerHour(5) ∧ Time(2) → TemperatureDrop(5*2) → 10,"DropPerHour(5) ∧ Time(2) → TemperatureDrop(5*2) → 10
+
+Answer: 10°C"
+001,"If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",Sam,Sam,True,"Tallest(Sam, Tom) ∧ Taller(Tom, Bob) → Tallest(Sam, Bob)","Tallest(Sam, Tom) ∧ Taller(Tom, Bob) → Tallest(Sam, Bob)
+
+Answer: Sam"
+021,The temperature drops 10°C every hour. How much will it drop in 2 hours?,20°C,20°C,True,DropPerHour(10) ∧ Time(2) → TemperatureDrop(10*2) → 20,"DropPerHour(10) ∧ Time(2) → TemperatureDrop(10*2) → 20
+
+Answer: 20°C"
+042,An object moves 70 meters in 2 seconds. What is its velocity?,35 m/s,35 m/s,True,"Velocity(Object,70/2) → Velocity(Object,35)","Velocity(Object,70/2) → Velocity(Object,35)
+
+Answer: 35 m/s"
+031,"If object A moves 120 meters in 12 seconds, what is its speed?",10 m/s,10 m/s,True,"Speed(ObjectA, 120/12) → Speed(ObjectA, 10)","Speed(ObjectA, 120/12) → Speed(ObjectA, 10)
+
+Answer: 10 m/s"
+019,"If object A moves 200 meters in 20 seconds, what is its speed?",10 m/s,10 m/s,True,"Speed(ObjectA, 200/20) → Speed(ObjectA, 10)","Speed(ObjectA, 200/20) → Speed(ObjectA, 10)
+
+Answer: 10 m/s"
+009,"If Peter is taller than John, and John is taller than Sam, who is the tallest?",Peter,Peter,True,"Tallest(Peter, John) ∧ Tallest(John, Sam) → Tallest(Peter, Sam)","Tallest(Peter, John) ∧ Tallest(John, Sam) → Tallest(Peter, Sam)
+
+Answer: Peter"
+005,All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?,Yes,Yes,True,Fruit(x) → GrowsOnTree(x) → GrowsOnTree(Mango),"Fruit(x) → GrowsOnTree(x) → GrowsOnTree(Mango)
+
+Answer: Yes"
+013,"If a bag has 5 red balls and 3 blue balls, what fraction of balls are red?",5/8,5/8,True,"TotalBalls(Red,5+3) → TotalBalls(Red,8)
+
+FractionOfBalls(Red,5/8)","TotalBalls(Red,5+3) → TotalBalls(Red,8)
+
+FractionOfBalls(Red,5/8)
+
+Answer: 5/8"
+044,The temperature drops 3°C every hour. How much will it drop in 1 hours?,3°C,3°C,True,DropPerHour(3) ∧ Time(1) → TemperatureDrop(3*1) → 3,"DropPerHour(3) ∧ Time(1) → TemperatureDrop(3*1) → 3
+
+Answer: 3°C"
+014,The temperature drops 4°C every hour. How much will it drop in 3 hours?,12°C,12°C,True,DropPerHour(4) ∧ Time(3) → TemperatureDrop(4*3) → 12,"DropPerHour(4) ∧ Time(3) → TemperatureDrop(4*3) → 12
+
+Answer: 12°C"
+033,Mary has 2 apples. She buys 1 more. How many apples does she have now?,3,3,True,"TotalApples(Mary,2+1) → TotalApples(Mary,3)","TotalApples(Mary,2+1) → TotalApples(Mary,3)
+
+Answer: 3"
+034,"If object A moves 150 meters in 15 seconds, what is its speed?",10 m/s,10 m/s,True,"Speed(ObjectA, 150/15) → Speed(ObjectA, 10)","Speed(ObjectA, 150/15) → Speed(ObjectA, 10)
+
+Answer: 10 m/s"

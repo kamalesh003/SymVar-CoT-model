@@ -1,0 +1,2775 @@
+[
+  {
+    "id": "001",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "002",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "003",
+    "query": "An object moves 50 meters in 5 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,50)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,50/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,10)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,50/5) \u2192 Velocity(Object,10)"
+    },
+    "answer": "10 m/s"
+  },
+  {
+    "id": "004",
+    "query": "The temperature drops 2\u00b0C every hour. How much will it drop in 5 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(2)",
+        "Time(5)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(2*5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(10)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(2) \u2227 Time(5) \u2192 TemperatureDrop(2*5) \u2192 10"
+    },
+    "answer": "10\u00b0C"
+  },
+  {
+    "id": "005",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "006",
+    "query": "An object moves 470 meters in 10 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,470)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,470/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,47)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,470/10) \u2192 Velocity(Object,47)"
+    },
+    "answer": "47 m/s"
+  },
+  {
+    "id": "007",
+    "query": "Mary has 9 apples. She buys 3 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,9)",
+        "Buys(Mary,3)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,9+3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,12)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,9+3) \u2192 TotalApples(Mary,12)"
+    },
+    "answer": "12"
+  },
+  {
+    "id": "008",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "009",
+    "query": "All humans need water. John is human. Does John need water?",
+    "symbolic_annotation": {
+      "goal_atom": "NeedsWater(John)",
+      "facts": [
+        "Human(John)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 NeedsWater(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 NeedsWater(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "NeedsWater(John)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 NeedsWater(x) \u2192 NeedsWater(John)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "010",
+    "query": "The temperature drops 6\u00b0C every hour. How much will it drop in 2 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(6)",
+        "Time(2)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(6*2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(12)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(6) \u2227 Time(2) \u2192 TemperatureDrop(6*2) \u2192 12"
+    },
+    "answer": "12\u00b0C"
+  },
+  {
+    "id": "011",
+    "query": "All dogs are animals. Rex is a dog. Is Rex an animal?",
+    "symbolic_annotation": {
+      "goal_atom": "Animal(Rex)",
+      "facts": [
+        "Dog(Rex)"
+      ],
+      "rules": [
+        "\u2200x: Dog(x) \u2192 Animal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Dog(x) \u2192 Animal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Animal(Rex)"
+        }
+      ],
+      "compressed_symbolic_cot": " Dog(x) \u2192 Animal(x) \u2192 Animal(Rex)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "012",
+    "query": "The temperature drops 5\u00b0C every hour. How much will it drop in 2 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(5)",
+        "Time(2)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(5*2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(10)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(5) \u2227 Time(2) \u2192 TemperatureDrop(5*2) \u2192 10"
+    },
+    "answer": "10\u00b0C"
+  },
+  {
+    "id": "013",
+    "query": "Mary has 7 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,7)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,7+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,9)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,7+2) \u2192 TotalApples(Mary,9)"
+    },
+    "answer": "9"
+  },
+  {
+    "id": "014",
+    "query": "The temperature drops 4\u00b0C every hour. How much will it drop in 3 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(4)",
+        "Time(3)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(4*3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(12)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(4) \u2227 Time(3) \u2192 TemperatureDrop(4*3) \u2192 12"
+    },
+    "answer": "12\u00b0C"
+  },
+  {
+    "id": "015",
+    "query": "Mary has 8 apples. She buys 3 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,8)",
+        "Buys(Mary,3)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,8+3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,11)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,8+3) \u2192 TotalApples(Mary,11)"
+    },
+    "answer": "11"
+  },
+  {
+    "id": "016",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "017",
+    "query": "Mary has 4 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,4)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,4+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,6)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,4+2) \u2192 TotalApples(Mary,6)"
+    },
+    "answer": "6"
+  },
+  {
+    "id": "018",
+    "query": "Mary has 2 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,4)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+2) \u2192 TotalApples(Mary,4)"
+    },
+    "answer": "4"
+  },
+  {
+    "id": "019",
+    "query": "Mary has 8 apples. She buys 5 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,8)",
+        "Buys(Mary,5)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,8+5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,13)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,8+5) \u2192 TotalApples(Mary,13)"
+    },
+    "answer": "13"
+  },
+  {
+    "id": "020",
+    "query": "Mary has 6 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,6)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,6+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,8)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,6+2) \u2192 TotalApples(Mary,8)"
+    },
+    "answer": "8"
+  },
+  {
+    "id": "021",
+    "query": "The temperature drops 10\u00b0C every hour. How much will it drop in 2 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(10)",
+        "Time(2)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(10*2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(20)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(10) \u2227 Time(2) \u2192 TemperatureDrop(10*2) \u2192 20"
+    },
+    "answer": "20\u00b0C"
+  },
+  {
+    "id": "022",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "023",
+    "query": "The temperature drops 2\u00b0C every hour. How much will it drop in 4 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(2)",
+        "Time(4)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(2*4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(8)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(2) \u2227 Time(4) \u2192 TemperatureDrop(2*4) \u2192 8"
+    },
+    "answer": "8\u00b0C"
+  },
+  {
+    "id": "024",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "025",
+    "query": "Mary has 2 apples. She buys 5 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,5)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,7)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+5) \u2192 TotalApples(Mary,7)"
+    },
+    "answer": "7"
+  },
+  {
+    "id": "026",
+    "query": "Mary has 9 apples. She buys 1 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,9)",
+        "Buys(Mary,1)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,9+1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,10)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,9+1) \u2192 TotalApples(Mary,10)"
+    },
+    "answer": "10"
+  },
+  {
+    "id": "027",
+    "query": "A student has 18 pencils and buys 18 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,18)",
+        "Buys(Student,18)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,18+18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,36)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,18+18) \u2192 TotalPencils(Student,36)"
+    },
+    "answer": "36"
+  },
+  {
+    "id": "028",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "029",
+    "query": "A student has 11 pencils and buys 3 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,11)",
+        "Buys(Student,3)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,11+3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,14)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,11+3) \u2192 TotalPencils(Student,14)"
+    },
+    "answer": "14"
+  },
+  {
+    "id": "030",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "031",
+    "query": "Mary has 7 apples. She buys 1 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,7)",
+        "Buys(Mary,1)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,7+1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,8)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,7+1) \u2192 TotalApples(Mary,8)"
+    },
+    "answer": "8"
+  },
+  {
+    "id": "032",
+    "query": "The temperature drops 1\u00b0C every hour. How much will it drop in 1 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(1)",
+        "Time(1)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(1*1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(1)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(1) \u2227 Time(1) \u2192 TemperatureDrop(1*1) \u2192 1"
+    },
+    "answer": "1\u00b0C"
+  },
+  {
+    "id": "033",
+    "query": "Mary has 2 apples. She buys 1 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,1)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,3)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+1) \u2192 TotalApples(Mary,3)"
+    },
+    "answer": "3"
+  },
+  {
+    "id": "034",
+    "query": "A student has 8 pencils and buys 3 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,8)",
+        "Buys(Student,3)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,8+3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,11)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,8+3) \u2192 TotalPencils(Student,11)"
+    },
+    "answer": "11"
+  },
+  {
+    "id": "035",
+    "query": "All dogs are animals. Rex is a dog. Is Rex an animal?",
+    "symbolic_annotation": {
+      "goal_atom": "Animal(Rex)",
+      "facts": [
+        "Dog(Rex)"
+      ],
+      "rules": [
+        "\u2200x: Dog(x) \u2192 Animal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Dog(x) \u2192 Animal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Animal(Rex)"
+        }
+      ],
+      "compressed_symbolic_cot": " Dog(x) \u2192 Animal(x) \u2192 Animal(Rex)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "036",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "037",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "038",
+    "query": "An object moves 22 meters in 2 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,22)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,22/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,11)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,22/2) \u2192 Velocity(Object,11)"
+    },
+    "answer": "11 m/s"
+  },
+  {
+    "id": "039",
+    "query": "A student has 20 pencils and buys 16 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,20)",
+        "Buys(Student,16)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,20+16)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,36)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,20+16) \u2192 TotalPencils(Student,36)"
+    },
+    "answer": "36"
+  },
+  {
+    "id": "040",
+    "query": "An object moves 440 meters in 10 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,440)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,440/10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,44)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,440/10) \u2192 Velocity(Object,44)"
+    },
+    "answer": "44 m/s"
+  },
+  {
+    "id": "041",
+    "query": "All humans need water. John is human. Does John need water?",
+    "symbolic_annotation": {
+      "goal_atom": "NeedsWater(John)",
+      "facts": [
+        "Human(John)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 NeedsWater(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 NeedsWater(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "NeedsWater(John)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 NeedsWater(x) \u2192 NeedsWater(John)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "042",
+    "query": "An object moves 70 meters in 2 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,70)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,70/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,35)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,70/2) \u2192 Velocity(Object,35)"
+    },
+    "answer": "35 m/s"
+  },
+  {
+    "id": "043",
+    "query": "All humans are rational. Alice is human. Is Alice rational?",
+    "symbolic_annotation": {
+      "goal_atom": "Rational(Alice)",
+      "facts": [
+        "Human(Alice)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 Rational(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 Rational(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Rational(Alice)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 Rational(x) \u2192 Rational(Alice)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "044",
+    "query": "The temperature drops 3\u00b0C every hour. How much will it drop in 1 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(3)",
+        "Time(1)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(3*1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(3)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(3) \u2227 Time(1) \u2192 TemperatureDrop(3*1) \u2192 3"
+    },
+    "answer": "3\u00b0C"
+  },
+  {
+    "id": "045",
+    "query": "All humans need water. John is human. Does John need water?",
+    "symbolic_annotation": {
+      "goal_atom": "NeedsWater(John)",
+      "facts": [
+        "Human(John)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 NeedsWater(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 NeedsWater(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "NeedsWater(John)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 NeedsWater(x) \u2192 NeedsWater(John)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "046",
+    "query": "Mary has 4 apples. She buys 3 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,4)",
+        "Buys(Mary,3)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,4+3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,7)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,4+3) \u2192 TotalApples(Mary,7)"
+    },
+    "answer": "7"
+  },
+  {
+    "id": "047",
+    "query": "Mary has 2 apples. She buys 1 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,1)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,3)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+1) \u2192 TotalApples(Mary,3)"
+    },
+    "answer": "3"
+  },
+  {
+    "id": "048",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "049",
+    "query": "All dogs are animals. Rex is a dog. Is Rex an animal?",
+    "symbolic_annotation": {
+      "goal_atom": "Animal(Rex)",
+      "facts": [
+        "Dog(Rex)"
+      ],
+      "rules": [
+        "\u2200x: Dog(x) \u2192 Animal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Dog(x) \u2192 Animal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Animal(Rex)"
+        }
+      ],
+      "compressed_symbolic_cot": " Dog(x) \u2192 Animal(x) \u2192 Animal(Rex)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "050",
+    "query": "A student has 19 pencils and buys 15 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,19)",
+        "Buys(Student,15)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,19+15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,34)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,19+15) \u2192 TotalPencils(Student,34)"
+    },
+    "answer": "34"
+  },
+  {
+    "id": "051",
+    "query": "A student has 4 pencils and buys 10 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,4)",
+        "Buys(Student,10)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,4+10)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,14)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,4+10) \u2192 TotalPencils(Student,14)"
+    },
+    "answer": "14"
+  },
+  {
+    "id": "052",
+    "query": "All dogs are animals. Rex is a dog. Is Rex an animal?",
+    "symbolic_annotation": {
+      "goal_atom": "Animal(Rex)",
+      "facts": [
+        "Dog(Rex)"
+      ],
+      "rules": [
+        "\u2200x: Dog(x) \u2192 Animal(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Dog(x) \u2192 Animal(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Animal(Rex)"
+        }
+      ],
+      "compressed_symbolic_cot": " Dog(x) \u2192 Animal(x) \u2192 Animal(Rex)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "053",
+    "query": "The temperature drops 10\u00b0C every hour. How much will it drop in 1 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(10)",
+        "Time(1)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(10*1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(10)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(10) \u2227 Time(1) \u2192 TemperatureDrop(10*1) \u2192 10"
+    },
+    "answer": "10\u00b0C"
+  },
+  {
+    "id": "054",
+    "query": "A student has 11 pencils and buys 2 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,11)",
+        "Buys(Student,2)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,11+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,13)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,11+2) \u2192 TotalPencils(Student,13)"
+    },
+    "answer": "13"
+  },
+  {
+    "id": "055",
+    "query": "The temperature drops 6\u00b0C every hour. How much will it drop in 1 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(6)",
+        "Time(1)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(6*1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(6)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(6) \u2227 Time(1) \u2192 TemperatureDrop(6*1) \u2192 6"
+    },
+    "answer": "6\u00b0C"
+  },
+  {
+    "id": "056",
+    "query": "A student has 3 pencils and buys 15 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,3)",
+        "Buys(Student,15)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,3+15)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,18)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,3+15) \u2192 TotalPencils(Student,18)"
+    },
+    "answer": "18"
+  },
+  {
+    "id": "057",
+    "query": "Mary has 10 apples. She buys 5 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,10)",
+        "Buys(Mary,5)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,10+5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,15)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,10+5) \u2192 TotalApples(Mary,15)"
+    },
+    "answer": "15"
+  },
+  {
+    "id": "058",
+    "query": "An object moves 96 meters in 2 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,96)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,96/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,48)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,96/2) \u2192 Velocity(Object,48)"
+    },
+    "answer": "48 m/s"
+  },
+  {
+    "id": "059",
+    "query": "A student has 8 pencils and buys 13 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,8)",
+        "Buys(Student,13)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,8+13)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,21)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,8+13) \u2192 TotalPencils(Student,21)"
+    },
+    "answer": "21"
+  },
+  {
+    "id": "060",
+    "query": "All cars have wheels. MyCar is a car. Does MyCar have wheels?",
+    "symbolic_annotation": {
+      "goal_atom": "HasWheels(MyCar)",
+      "facts": [
+        "Car(MyCar)"
+      ],
+      "rules": [
+        "\u2200x: Car(x) \u2192 HasWheels(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Car(x) \u2192 HasWheels(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "HasWheels(MyCar)"
+        }
+      ],
+      "compressed_symbolic_cot": " Car(x) \u2192 HasWheels(x) \u2192 HasWheels(MyCar)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "061",
+    "query": "An object moves 28 meters in 2 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,28)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,28/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,14)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,28/2) \u2192 Velocity(Object,14)"
+    },
+    "answer": "14 m/s"
+  },
+  {
+    "id": "062",
+    "query": "A student has 3 pencils and buys 4 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,3)",
+        "Buys(Student,4)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,3+4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,7)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,3+4) \u2192 TotalPencils(Student,7)"
+    },
+    "answer": "7"
+  },
+  {
+    "id": "063",
+    "query": "A student has 11 pencils and buys 19 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,11)",
+        "Buys(Student,19)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,11+19)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,30)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,11+19) \u2192 TotalPencils(Student,30)"
+    },
+    "answer": "30"
+  },
+  {
+    "id": "064",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "065",
+    "query": "The temperature drops 3\u00b0C every hour. How much will it drop in 3 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(3)",
+        "Time(3)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(3*3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(9)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(3) \u2227 Time(3) \u2192 TemperatureDrop(3*3) \u2192 9"
+    },
+    "answer": "9\u00b0C"
+  },
+  {
+    "id": "066",
+    "query": "The temperature drops 8\u00b0C every hour. How much will it drop in 1 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(8)",
+        "Time(1)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(8*1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(8)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(8) \u2227 Time(1) \u2192 TemperatureDrop(8*1) \u2192 8"
+    },
+    "answer": "8\u00b0C"
+  },
+  {
+    "id": "067",
+    "query": "A student has 1 pencils and buys 18 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,1)",
+        "Buys(Student,18)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,1+18)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,19)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,1+18) \u2192 TotalPencils(Student,19)"
+    },
+    "answer": "19"
+  },
+  {
+    "id": "068",
+    "query": "Mary has 2 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,4)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+2) \u2192 TotalApples(Mary,4)"
+    },
+    "answer": "4"
+  },
+  {
+    "id": "069",
+    "query": "All humans are rational. Alice is human. Is Alice rational?",
+    "symbolic_annotation": {
+      "goal_atom": "Rational(Alice)",
+      "facts": [
+        "Human(Alice)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 Rational(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 Rational(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Rational(Alice)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 Rational(x) \u2192 Rational(Alice)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "070",
+    "query": "All humans need water. John is human. Does John need water?",
+    "symbolic_annotation": {
+      "goal_atom": "NeedsWater(John)",
+      "facts": [
+        "Human(John)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 NeedsWater(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 NeedsWater(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "NeedsWater(John)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 NeedsWater(x) \u2192 NeedsWater(John)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "071",
+    "query": "The temperature drops 8\u00b0C every hour. How much will it drop in 2 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(8)",
+        "Time(2)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(8*2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(16)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(8) \u2227 Time(2) \u2192 TemperatureDrop(8*2) \u2192 16"
+    },
+    "answer": "16\u00b0C"
+  },
+  {
+    "id": "072",
+    "query": "An object moves 215 meters in 5 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,215)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,215/5)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,43)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,215/5) \u2192 Velocity(Object,43)"
+    },
+    "answer": "43 m/s"
+  },
+  {
+    "id": "073",
+    "query": "An object moves 15 meters in 1 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,15)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,15/1)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,15)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,15/1) \u2192 Velocity(Object,15)"
+    },
+    "answer": "15 m/s"
+  },
+  {
+    "id": "074",
+    "query": "An object moves 105 meters in 7 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,105)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,105/7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,15)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,105/7) \u2192 Velocity(Object,15)"
+    },
+    "answer": "15 m/s"
+  },
+  {
+    "id": "075",
+    "query": "A student has 11 pencils and buys 7 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,11)",
+        "Buys(Student,7)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,11+7)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,18)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,11+7) \u2192 TotalPencils(Student,18)"
+    },
+    "answer": "18"
+  },
+  {
+    "id": "076",
+    "query": "All birds can fly. Tweety is a bird. Can Tweety fly?",
+    "symbolic_annotation": {
+      "goal_atom": "CanFly(Tweety)",
+      "facts": [
+        "Bird(Tweety)"
+      ],
+      "rules": [
+        "\u2200x: Bird(x) \u2192 CanFly(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Bird(x) \u2192 CanFly(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "CanFly(Tweety)"
+        }
+      ],
+      "compressed_symbolic_cot": " Bird(x) \u2192 CanFly(x) \u2192 CanFly(Tweety)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "077",
+    "query": "All humans are rational. Alice is human. Is Alice rational?",
+    "symbolic_annotation": {
+      "goal_atom": "Rational(Alice)",
+      "facts": [
+        "Human(Alice)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 Rational(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 Rational(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Rational(Alice)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 Rational(x) \u2192 Rational(Alice)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "078",
+    "query": "An object moves 270 meters in 6 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,270)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,270/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,45)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,270/6) \u2192 Velocity(Object,45)"
+    },
+    "answer": "45 m/s"
+  },
+  {
+    "id": "079",
+    "query": "An object moves 52 meters in 4 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,52)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,52/4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,13)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,52/4) \u2192 Velocity(Object,13)"
+    },
+    "answer": "13 m/s"
+  },
+  {
+    "id": "080",
+    "query": "Mary has 3 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,3)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,3+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,5)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,3+2) \u2192 TotalApples(Mary,5)"
+    },
+    "answer": "5"
+  },
+  {
+    "id": "081",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "082",
+    "query": "An object moves 280 meters in 8 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,280)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,280/8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,35)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,280/8) \u2192 Velocity(Object,35)"
+    },
+    "answer": "35 m/s"
+  },
+  {
+    "id": "083",
+    "query": "A student has 12 pencils and buys 20 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,12)",
+        "Buys(Student,20)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,12+20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,32)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,12+20) \u2192 TotalPencils(Student,32)"
+    },
+    "answer": "32"
+  },
+  {
+    "id": "084",
+    "query": "Mary has 6 apples. She buys 4 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,6)",
+        "Buys(Mary,4)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,6+4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,10)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,6+4) \u2192 TotalApples(Mary,10)"
+    },
+    "answer": "10"
+  },
+  {
+    "id": "085",
+    "query": "Mary has 2 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,2)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,2+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,4)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,2+2) \u2192 TotalApples(Mary,4)"
+    },
+    "answer": "4"
+  },
+  {
+    "id": "086",
+    "query": "An object moves 88 meters in 2 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,88)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,88/2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,44)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,88/2) \u2192 Velocity(Object,44)"
+    },
+    "answer": "44 m/s"
+  },
+  {
+    "id": "087",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "088",
+    "query": "The temperature drops 8\u00b0C every hour. How much will it drop in 4 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(8)",
+        "Time(4)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(8*4)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(32)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(8) \u2227 Time(4) \u2192 TemperatureDrop(8*4) \u2192 32"
+    },
+    "answer": "32\u00b0C"
+  },
+  {
+    "id": "089",
+    "query": "A student has 10 pencils and buys 20 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,10)",
+        "Buys(Student,20)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,10+20)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,30)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,10+20) \u2192 TotalPencils(Student,30)"
+    },
+    "answer": "30"
+  },
+  {
+    "id": "090",
+    "query": "A student has 2 pencils and buys 8 more. How many pencils does he have in total?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalPencils(Student, ?x)",
+      "facts": [
+        "Has(Student,2)",
+        "Buys(Student,8)"
+      ],
+      "rules": [
+        "\u2200s \u2200a \u2200b: Has(s,a) \u2227 Buys(s,b) \u2192 TotalPencils(s,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalPencils rule",
+          "inferred": "TotalPencils(Student,2+8)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalPencils(Student,10)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalPencils(Student,2+8) \u2192 TotalPencils(Student,10)"
+    },
+    "answer": "10"
+  },
+  {
+    "id": "091",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "092",
+    "query": "The temperature drops 5\u00b0C every hour. How much will it drop in 2 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(5)",
+        "Time(2)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(5*2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(10)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(5) \u2227 Time(2) \u2192 TemperatureDrop(5*2) \u2192 10"
+    },
+    "answer": "10\u00b0C"
+  },
+  {
+    "id": "093",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "094",
+    "query": "Mary has 3 apples. She buys 2 more. How many apples does she have now?",
+    "symbolic_annotation": {
+      "goal_atom": "TotalApples(Mary, ?x)",
+      "facts": [
+        "Has(Mary,3)",
+        "Buys(Mary,2)"
+      ],
+      "rules": [
+        "\u2200p \u2200a \u2200b: Has(p,a) \u2227 Buys(p,b) \u2192 TotalApples(p,a+b)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "TotalApples rule",
+          "inferred": "TotalApples(Mary,3+2)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TotalApples(Mary,5)"
+        }
+      ],
+      "compressed_symbolic_cot": "TotalApples(Mary,3+2) \u2192 TotalApples(Mary,5)"
+    },
+    "answer": "5"
+  },
+  {
+    "id": "095",
+    "query": "An object moves 162 meters in 6 seconds. What is its velocity?",
+    "symbolic_annotation": {
+      "goal_atom": "Velocity(Object, ?v)",
+      "facts": [
+        "Distance(Object,162)",
+        "Time(Object,{t})"
+      ],
+      "rules": [
+        "\u2200d \u2200t \u2200o: Distance(o,d) \u2227 Time(o,t) \u2192 Velocity(o,d/t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Velocity formula",
+          "inferred": "Velocity(Object,162/6)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "Velocity(Object,27)"
+        }
+      ],
+      "compressed_symbolic_cot": "Velocity(Object,162/6) \u2192 Velocity(Object,27)"
+    },
+    "answer": "27 m/s"
+  },
+  {
+    "id": "096",
+    "query": "If Sam is taller than Tom, and Tom is taller than Bob, who is tallest?",
+    "symbolic_annotation": {
+      "goal_atom": "Tallest(?x)",
+      "facts": [
+        "Taller(Sam,Tom)",
+        "Taller(Tom,Bob)"
+      ],
+      "rules": [
+        "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x \u2200y \u2200z: Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "Tallest(?x)"
+        }
+      ],
+      "compressed_symbolic_cot": " Taller(x,y) \u2227 Taller(y,z) \u2192 Taller(x,z) \u2192 Tallest(?x)"
+    },
+    "answer": "Sam"
+  },
+  {
+    "id": "097",
+    "query": "The temperature drops 6\u00b0C every hour. How much will it drop in 3 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(6)",
+        "Time(3)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(6*3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(18)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(6) \u2227 Time(3) \u2192 TemperatureDrop(6*3) \u2192 18"
+    },
+    "answer": "18\u00b0C"
+  },
+  {
+    "id": "098",
+    "query": "All fruits grow on trees. Mango is a fruit. Does mango grow on a tree?",
+    "symbolic_annotation": {
+      "goal_atom": "GrowsOnTree(Mango)",
+      "facts": [
+        "Fruit(Mango)"
+      ],
+      "rules": [
+        "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Fruit(x) \u2192 GrowsOnTree(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "GrowsOnTree(Mango)"
+        }
+      ],
+      "compressed_symbolic_cot": " Fruit(x) \u2192 GrowsOnTree(x) \u2192 GrowsOnTree(Mango)"
+    },
+    "answer": "Yes"
+  },
+  {
+    "id": "099",
+    "query": "The temperature drops 3\u00b0C every hour. How much will it drop in 3 hours?",
+    "symbolic_annotation": {
+      "goal_atom": "TemperatureDrop(?d)",
+      "facts": [
+        "DropPerHour(3)",
+        "Time(3)"
+      ],
+      "rules": [
+        "\u2200r \u2200t: DropPerHour(r) \u2227 Time(t) \u2192 TemperatureDrop(r*t)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Multiplication",
+          "inferred": "TemperatureDrop(3*3)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Arithmetic",
+          "inferred": "TemperatureDrop(9)"
+        }
+      ],
+      "compressed_symbolic_cot": "DropPerHour(3) \u2227 Time(3) \u2192 TemperatureDrop(3*3) \u2192 9"
+    },
+    "answer": "9\u00b0C"
+  },
+  {
+    "id": "100",
+    "query": "All humans need water. John is human. Does John need water?",
+    "symbolic_annotation": {
+      "goal_atom": "NeedsWater(John)",
+      "facts": [
+        "Human(John)"
+      ],
+      "rules": [
+        "\u2200x: Human(x) \u2192 NeedsWater(x)"
+      ],
+      "proof_dag": [
+        {
+          "step": 1,
+          "applied_rule": "Rule applied",
+          "inferred": "\u2200x: Human(x) \u2192 NeedsWater(x)"
+        },
+        {
+          "step": 2,
+          "applied_rule": "Modus Ponens / Instantiation",
+          "inferred": "NeedsWater(John)"
+        }
+      ],
+      "compressed_symbolic_cot": " Human(x) \u2192 NeedsWater(x) \u2192 NeedsWater(John)"
+    },
+    "answer": "Yes"
+  }
+]
