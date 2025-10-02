@@ -108,3 +108,73 @@ Answer: No
 ```
 
 
+# Failure of Standard CoT:
+
+```bash
+Complex Query: If all zargs are either blims or clops, and some clops are not zargs, and no blims are drogs, but every drog is a zarg, can a drog be a clop?
+
+Generating SymVar-CoT...
+SymVar-CoT Output:
+To determine if a drog can be a clop, we can analyze the given statements step by step.
+
+1. **All zargs are either blims or clops**: This means that for any entity \( x \), if \( x \) is a zarg, then \( x \) is a blim or \( x \) is a clop. 
+   - \( Zarg(x) \rightarrow Blim(x) \lor Clop(x) \)
+
+2. **Some clops are not zargs**: This means there exists at least one entity \( y \) such that \( y \) is a clop and \( y \) is not a zarg.
+   - \( Clop(y) \land \neg Zarg(y) \)
+
+3. **No blims are drogs**: This means that if \( x \) is a blim, then \( x \) is not a drog.
+   - \( Blim(x) \rightarrow \neg Drog(x) \)
+
+4. **Every drog is a zarg**: This means that if \( x \) is a drog, then \( x \) is a zarg.
+   - \( Drog(x) \rightarrow Zarg(x) \)
+------------------------------
+
+Generating Standard CoT using gpt-4o-mini...
+Standard CoT Output:
+To solve this problem, let's break down the information given step-by-step:
+
+1. **All zargs are either blims or clops.**
+   - This means that if something is a zarg, it must be either a blim or a clop.
+
+2. **Some clops are not zargs.**
+   - This indicates that there are clops that do not fall into the category of zargs.
+
+3. **No blims are drogs.**
+   - This tells us that if something is a blim, it cannot be a drog.
+
+4. **Every drog is a zarg.**
+   - This means that if something is a drog, it must also be a zarg.
+
+Now, we need to determine if a drog can be a clop.
+
+From point 4, since every drog is a zarg, we can conclude that all drogs must be either blims or clops (from point 1). However, from point 3, we know that no blims are drogs. Therefore, the only possibility left is that drogs must be clops.
+
+However, we also have point 2, which states that some clops are not zargs. This means that not all clops are zargs, and since all drogs must be zargs, it follows that drogs cannot be among those clops that are not zargs.
+
+Thus, we conclude that a drog cannot be a clop because if it were, it would contradict the statement that some clops are not zargs.
+
+In summary, based on the logical deductions from the premises provided, a drog cannot be a clop.
+------------------------------
+
+Comparison:
+Review the outputs above to compare the structure and reasoning process.
+
+SymVar-CoT Answer: To determine if a drog can be a clop, we can analyze the given statements step by step.
+
+1. **All zargs are either blims or clops**: This means that for any entity \( x \), if \( x \) is a zarg, then \( x \) is a blim or \( x \) is a clop. 
+   - \( Zarg(x) \rightarrow Blim(x) \lor Clop(x) \)
+
+2. **Some clops are not zargs**: This means there exists at least one entity \( y \) such that \( y \) is a clop and \( y \) is not a zarg.
+   - \( Clop(y) \land \neg Zarg(y) \)
+
+3. **No blims are drogs**: This means that if \( x \) is a blim, then \( x \) is not a drog.
+   - \( Blim(x) \rightarrow \neg Drog(x) \)
+
+4. **Every drog is a zarg**: This means that if \( x \) is a drog, then \( x \) is a zarg.
+   - \( Drog(x) \rightarrow Zarg(x) \)
+SymVar-CoT Compressed: 
+
+**Standard CoT Answer: Could not extract answer.**
+```
+
