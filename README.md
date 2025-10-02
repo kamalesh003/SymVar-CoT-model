@@ -1,10 +1,11 @@
-# SymVar-CoT-model-
+# SymVar-CoT-model
 **UNIQUE SAMPLES:**
 <img width="989" height="315" alt="Screenshot 2025-10-02 215915" src="https://github.com/user-attachments/assets/3ec71d3c-fd49-4fba-87d1-c3d71f601210" />
 
+**AVG TOKEN COST:**
 <img width="1679" height="342" alt="Screenshot 2025-10-02 220021" src="https://github.com/user-attachments/assets/f8dffc02-0f07-4bd4-8ea5-3c5a741e3120" />
 
-# TOKEN COST PER QUERY COMPARISON
+**TOKEN COST PER QUERY COMPARISON:**
 
 <img width="1489" height="690" alt="image" src="https://github.com/user-attachments/assets/44eb42b6-cbb8-4022-892b-2de95a68fd4b" />
 
