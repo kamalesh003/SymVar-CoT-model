@@ -108,7 +108,7 @@ Answer: No
 ```
 
 
-# Failure of Standard CoT:
+# Standard CoT vs SymVar CoT - (Failure of Standard CoT):
 
 ```bash
 Complex Query: If all zargs are either blims or clops, and some clops are not zargs, and no blims are drogs, but every drog is a zarg, can a drog be a clop?
